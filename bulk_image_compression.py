@@ -9,9 +9,9 @@ def resize():
         if os.path.isfile(path+item):
             imageTemporary = Image.open(path+item)
             f, e = os.path.splitext(path+"resizedImages/"+item)
-            newImage = imageTemporary
+            newImage = imageTemporary.convert('RGB')
             print(f)
             print(item)
-            newImage.save(f + '_newlyResized.jpg', 'PNG', quality=80)
+            newImage.save(f + '_newlyResized.jpg', optimize=True, quality=90)
 
 resize()
